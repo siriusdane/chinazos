@@ -8,7 +8,7 @@ dialog_post.querySelector('.close').addEventListener('click', function() {
 });
 
 function show_post() {
-    $('#form_post input').val('');
+    $('#form_post textarea').val('');
     $('#span_postError').css('visibility', 'hidden');
     dialog_post.showModal();
 }

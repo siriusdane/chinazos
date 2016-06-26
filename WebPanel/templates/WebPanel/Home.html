@@ -22,13 +22,13 @@
     <div class="mdl-dialog__content">
         <form id="form_post">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input id="id_post-title" name="post-title" class="mdl-textfield__input" type="text" maxlength="100">
-                <label class="mdl-textfield__label" for="id_post-title">{% trans 'Title...' %}</label>
+                <textarea id="id_post-content" name="post-content" class="mdl-textfield__input" type="text" maxlength="800" rows="4">
+                <label class="mdl-textfield__label" for="id_post-content">{% trans 'Chinazo...' %}</label>
+                <span id="span_postError" class="mdl-textfield__error">{% trans 'There was an error' %}</span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input id="id_post-content" name="post-content" class="mdl-textfield__input" type="text" maxlength="800" rows="4">
-                <label class="mdl-textfield__label" for="id_post-content">{% trans 'Chinazo Content...' %}</label>
-                <span id="span_postError" class="mdl-textfield__error">{% trans 'There was an error' %}</span>
+                <textarea rows="2" id="id_post-title" name="post-title" class="mdl-textfield__input" type="text" maxlength="100">
+                <label class="mdl-textfield__label" for="id_post-title">{% trans 'Description...' %}</label>
             </div>
         </form>
     </div>
