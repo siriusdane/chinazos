@@ -1,0 +1,53 @@
+{% extends 'WebPanel/Base/inner.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'WebPanel/css/Post.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mdl-grid">
+    <div id="div_postDetail" class="mdl-cell mdl-cell--8-col"></div>
+</div>
+{% endblock %}
+
+{% block dialogs %}
+<dialog id="dialog_post" class="mdl-dialog">
+    <div class="mdl-dialog__title">{% trans 'New Chinazo' %}</div>
+    <div class="mdl-dialog__content">
+        <form id="form_post">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="id_post-title" name="post-title" class="mdl-textfield__input" type="text" maxlength="100">
+                <label class="mdl-textfield__label" for="id_post-title">{% trans 'Title...' %}</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="id_post-content" name="post-content" class="mdl-textfield__input" type="text" maxlength="800" rows="4">
+                <label class="mdl-textfield__label" for="id_post-content">{% trans 'Chinazo Content...' %}</label>
+                <span id="span_postError" class="mdl-textfield__error">{% trans 'There was an error' %}</span>
+            </div>
+        </form>
+    </div>
+    <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button" onclick="post_chinazo()">{% trans 'Save' %}</button>
+        <button type="button" class="mdl-button close">{% trans 'Close' %}</button> 
+    </div>
+</dialog>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'WebPanel/js/Post.js' %}"></script>
+<script>
+$('#div_postMessage').hide();
+var authenticated = {% if user.is_authenticated %} true {% else %} false {% endif %},
+    post = {{ post }};                                                                          
+var url_postList = '{% url "WebPanel:post-list" %}',
+    url_postInteraction = '{% url "WebPanel:post-interaction" 0 "like" %}',
+    url_postCommentList = '{% url "WebPanel:comment-list" 0 %}'.replace('/0/', '/'+post.id+'/'),
+    url_nextPage = '{% url "WebPanel:comment-list" 0 %}'.replace('/0/', '/'+post.id+'/'), 
+    url_postCommentInteraction = '{% url "WebPanel:comment-interaction" 1 0 "like" %}'.replace('/1/', '/'+post.id+'/');
+var icon_profile = '{% static "WebPanel/img/profile.png" %}',
+    icon_profileDark = '{% static "WebPanel/img/profile-dark.png" %}';
+draw_post(post);
+</script>
+{% endblock %}

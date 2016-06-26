@@ -1,0 +1,9 @@
+Django==1.9.7
+Pillow==3.2.0
+argparse==1.2.1
+django-filter==0.13.0
+djangorestframework==3.3.3
+psycopg2==2.6.1
+serpy==0.1.1
+six==1.10.0
+wsgiref==0.1.2

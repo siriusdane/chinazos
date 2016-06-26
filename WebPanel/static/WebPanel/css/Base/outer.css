@@ -1,0 +1,23 @@
+body {
+    background-color: #EEEEEE;
+}
+
+.form-container.mdl-card {
+    width: 312px;
+}
+
+.form-container > .mdl-card__title {
+    color: #FFF;
+    height: 176px;
+    background: url('../../img/CardBackground.jpg') center / cover;
+}
+
+.mdl-card .form-buttons {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.form-buttons button {
+    margin: 0 auto;
+    display: block;
+}

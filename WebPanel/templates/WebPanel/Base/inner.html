@@ -1,0 +1,84 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chinazos</title>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-indigo.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.3/dialog-polyfill.min.css">
+        <link rel="stylesheet" href="{% static 'WebPanel/css/Base/inner.css' %}">
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+        <!-- CONTENT -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <span class="mdl-layout-title" onclick="gotoHome()">{% trans 'Chinazos' %}</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <nav class="mdl-navigation">
+                        {% if user.is_authenticated %}
+                        <div class="mdl-layout-icon">
+                            <button class="mdl-button mdl-js-button mdl-button--icon" onclick="show_post()">
+                                <div id="div_addPost" class="material-icons">add</div>
+                                <div class="mdl-tooltip" for="div_addPost">{% trans 'Post new Chinazo' %}</div>
+                            </button>
+                        </div>
+                        <a class="mdl-navigation__link" href="#">
+                            <img src="{{ user.profile.get_avatar }}">
+                            {{ user.profile.display }}
+                        </a>
+                        <a class="mdl-navigation__link" href="#" onclick="logout()">{% trans 'Logout' %}</a>
+                        {% else %}
+                        <a class="mdl-navigation__link" href="#" onclick="show_login()">Log in</a>
+                        {% endif %}
+                    </nav>
+                </div>
+            </header>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    {% block content %}{% endblock %}
+                </div>
+            </main>
+            {# DIALOG LOGIN #}
+            <dialog id="dialog_login" class="mdl-dialog">
+                <div class="mdl-dialog__title">{% trans 'Login' %}</div>
+                <div class="mdl-dialog__content">
+                    <form id="form_login">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input id="id_login-username" name="login-username" class="mdl-textfield__input" type="text" maxlength="20">
+                            <label class="mdl-textfield__label" for="id_login-username">{% trans 'Username...' %}</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input id="id_login-password" name="login-password" class="mdl-textfield__input" type="password" maxlength="16">
+                            <label class="mdl-textfield__label" for="id_login-password">{% trans 'Password...' %}</label>
+                            <span id="span_loginError" class="mdl-textfield__error">{% trans 'Username and Password do not match' %}</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="mdl-dialog__actions">
+                    <button type="button" class="mdl-button" onclick="login()">{% trans 'Log In' %}</button>
+                    <button type="button" class="mdl-button close">{% trans 'Close' %}</button> 
+                </div>
+            </dialog>
+            {% block dialogs %}{% endblock %}
+        </div>
+        
+        <!-- SCRIPTS -->
+        <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.2/js.cookie.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.3/dialog-polyfill.min.js"></script>
+        <script>
+        var url_loginService = "{% url 'WebPanel:login-service' %}",
+            url_logoutService = "{% url 'WebPanel:logout-service' %}",
+            url_registrationService = "{% url 'WebPanel:registration-service' %}",
+            url_home = '{% url "WebPanel:home" %}';
+        </script>
+        <script src="{% static 'WebPanel/js/Base/inner.js' %}"></script>
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

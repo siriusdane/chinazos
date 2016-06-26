@@ -1,0 +1,13 @@
+body {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+.mdl-layout__header-row > .mdl-layout-title {
+    cursor: pointer;
+}
+
+.mdl-navigation__link img {
+    height: 30px;
+    width: auto;
+    margin-right: 5px;
+}

@@ -1,0 +1,54 @@
+{% extends 'WebPanel/Base/inner.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'WebPanel/css/Home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+        <div id="div_postTable"></div>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="get_next_page()">{% trans 'Get more Chinazos' %}</button>
+        <div id="div_postMessage">{% trans 'There are no more posts' %}</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block dialogs %}
+<dialog id="dialog_post" class="mdl-dialog">
+    <div class="mdl-dialog__title">{% trans 'New Chinazo' %}</div>
+    <div class="mdl-dialog__content">
+        <form id="form_post">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="id_post-title" name="post-title" class="mdl-textfield__input" type="text" maxlength="100">
+                <label class="mdl-textfield__label" for="id_post-title">{% trans 'Title...' %}</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="id_post-content" name="post-content" class="mdl-textfield__input" type="text" maxlength="800" rows="4">
+                <label class="mdl-textfield__label" for="id_post-content">{% trans 'Chinazo Content...' %}</label>
+                <span id="span_postError" class="mdl-textfield__error">{% trans 'There was an error' %}</span>
+            </div>
+        </form>
+    </div>
+    <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button" onclick="post_chinazo()">{% trans 'Save' %}</button>
+        <button type="button" class="mdl-button close">{% trans 'Close' %}</button> 
+    </div>
+</dialog>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'WebPanel/js/Home.js' %}"></script>
+<script>
+$('#div_postMessage').hide();
+var authenticated = {% if user.is_authenticated %} true {% else %} false {% endif %};
+var url_postList = '{% url "WebPanel:post-list" %}',
+    url_postDetail = '{% url "WebPanel:post-detail" 0 %}',
+    url_nextPage = '{% url "WebPanel:post-list" %}', 
+    url_postInteraction = '{% url "WebPanel:post-interaction" 0 "like" %}';
+var icon_profileDark = '{% static "WebPanel/img/profile-dark.png" %}'
+get_next_page();
+</script>
+{% endblock %}

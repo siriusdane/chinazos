@@ -1,0 +1,187 @@
+/* POST */
+.mdl-card__supporting-text {
+    width: 100%;
+    padding: 16px;
+    min-height: 64px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.mdl-card__title h3 {
+    color: #212121;
+}
+
+.mdl-card__title h3.quote:before {
+    content: '“';
+}
+
+.mdl-card__title h3.quote:after {
+    content: '”';
+}
+
+.mdl-card__title span {
+    color: #898989;
+}
+
+.post-bar {
+    box-sizing: border-box;
+    padding: 16px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    height: auto;
+    line-height: 50px;
+}
+
+.post-bar img {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    background-color: #F5F5F5;
+}
+
+.post-bar span {
+    font-weight: bold;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+
+.post-bar .material-icons {
+    padding-left: 15px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+/* POST COMMENTS */
+.post-comments {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    padding: 32px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #eee;
+}
+
+.post-comments > form {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+
+.post-comments > form button {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.24);
+    color: white;
+}
+
+.post-comments > form .mdl-textfield {
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-right: 16px;
+    color: rgb(97, 97, 97);
+}
+
+.post-comments .comment > .comment__replies {
+    padding-top: 32px;
+    padding-left: 48px;
+}
+
+.comment {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-bottom: 30px;
+}
+
+.comment > .comment__header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.comment > .comment__actions {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 0.8em;
+    margin-top: 16px;
+}
+
+.comment > .comment__actions .material-icons {
+    font-size: 18px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.comment > .comment__header > .comment__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+.comment > .comment__header > .comment__author {
+    webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.comment > .comment__text {
+    line-height: 1.5em;
+}

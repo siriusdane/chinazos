@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %} | Chinazos</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.deep_purple-blue.min.css">
+        <link rel="stylesheet" href="{% static 'WebPanel/css/Base/outer.css' %}">
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+        <!-- CONTENT -->
+        <div class="mdl-grid">
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell mdl-cell--4-col">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="mdl-layout-spacer"></div>
+        </div>
+        
+        <!-- SCRIPTS -->
+        <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        {% block scripts %}{% endblock %}
+    </body>
+</html>
