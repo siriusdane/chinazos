@@ -11,3 +11,7 @@ body {
     width: auto;
     margin-right: 5px;
 }
+
+.dialog__actions button {
+    margin-right: auto;
+}

@@ -60,8 +60,50 @@
                     </form>
                 </div>
                 <div class="mdl-dialog__actions">
+                    <div class="mdl-layout-spacer"></div>
                     <button type="button" class="mdl-button" onclick="login()">{% trans 'Log In' %}</button>
                     <button type="button" class="mdl-button close">{% trans 'Close' %}</button> 
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+                <div class="mdl-dialog__actions">
+                    <div class="mdl-layout-spacer"></div>
+                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="show_register()">{% trans 'Register' %}</button>
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+            </dialog>
+            {# DIALOG REGISTER #}
+            <dialog id="dialog_register" class="mdl-dialog">
+                <div class="mdl-dialog__title">{% trans 'Register' %}</div>
+                <div class="mdl-dialog__content">
+                    <form id="form_register">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input id="id_registration-username" name="registration-username" class="mdl-textfield__input" type="text" maxlength="20">
+                            <label class="mdl-textfield__label" for="id_registration-username">{% trans 'Username...' %}</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input id="id_registration-display" name="registration-display" class="mdl-textfield__input" type="text" maxlength="50">
+                            <label class="mdl-textfield__label" for="id_registration-display">{% trans 'Display Name...' %}</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input id="id_registration-email" name="registration-email" class="mdl-textfield__input" type="text">
+                            <label class="mdl-textfield__label" for="id_registration-email">{% trans 'Email...' %}</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input id="id_registration-password" name="registration-password" class="mdl-textfield__input" type="password" maxlength="16">
+                            <label class="mdl-textfield__label" for="id_registration-password">{% trans 'Password...' %}</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input id="id_registration-confirmation" name="registration-confirmation" class="mdl-textfield__input" type="password" maxlength="16">
+                            <label class="mdl-textfield__label" for="id_registration-confirmation">{% trans 'Confirm Password...' %}</label>
+                        </div>
+                        <span id="span_loginError" class="mdl-textfield__error">{% trans 'There was an error' %}</span>
+                    </form>
+                </div>
+                <div class="mdl-dialog__actions">
+                    <div class="mdl-layout-spacer"></div>
+                    <button type="button" class="mdl-button" onclick="register()">{% trans 'Register' %}</button>
+                    <button type="button" class="mdl-button close">{% trans 'Close' %}</button> 
+                    <div class="mdl-layout-spacer"></div>
                 </div>
             </dialog>
             {% block dialogs %}{% endblock %}
@@ -75,7 +117,7 @@
         <script>
         var url_loginService = "{% url 'WebPanel:login-service' %}",
             url_logoutService = "{% url 'WebPanel:logout-service' %}",
-            url_registrationService = "{% url 'WebPanel:registration-service' %}",
+            url_registerService = "{% url 'WebPanel:registration-service' %}",
             url_home = '{% url "WebPanel:home" %}';
         </script>
         <script src="{% static 'WebPanel/js/Base/inner.js' %}"></script>
