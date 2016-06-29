@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'Chinazos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dded5hsbbu72l4',
-        'USER': 'gjzvfachutytzq',
-        'PASSWORD': '5nWdR0JaOMso3CofbFDyrGa5rt',
-        'HOST': 'ec2-54-243-245-58.compute-1.amazonaws.com',
-        'PORT': '5432'
+        'NAME': 'chinazos',
+        'USER': 'adminhuthwgm',
+        'PASSWORD': 'XYznf9KEaiib',
+        'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],
+        'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT']
     }
 }
 
